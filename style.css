@@ -1,0 +1,244 @@
+:root {
+  --bg: #f0f2f5;
+  --sidebar-bg: #ffffff;
+  --primary: #3498db;
+  --secondary: #2ecc71;
+  --accent: #e74c3c;
+  --text: #2c3e50;
+  --text-muted: #7f8c8d;
+  --border: #dfe6e9;
+  --matrix-bg: #f8f9fa;
+  --btn-bg: #ffffff;
+  --btn-hover: #f1f3f5;
+  --card-bg: #eef7ff;
+  --legend-bg: rgba(255, 255, 255, 0.9);
+  --canvas-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --sidebar-bg: #1e1e1e;
+  --text: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --border: #333333;
+  --matrix-bg: #2d2d2d;
+  --btn-bg: #2d2d2d;
+  --btn-hover: #3d3d3d;
+  --card-bg: #2a3b4c;
+  --legend-bg: rgba(30, 30, 30, 0.9);
+  --canvas-bg: #121212;
+}
+
+body {
+  font-family: "Segoe UI", Meiryo, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#sidebar {
+  width: 360px;
+  background: var(--sidebar-bg);
+  padding: 25px;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 10;
+  overflow-y: auto;
+  transition: background-color 0.3s;
+}
+
+.header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.control-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: var(--btn-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 5px 0 0 0;
+}
+
+h2 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 15px 0 5px 0;
+}
+
+.matrix-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: var(--matrix-bg);
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  border: 1px solid var(--border);
+}
+
+.matrix-display::before,
+.matrix-display::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  width: 10px;
+  border: 2px solid var(--text);
+}
+
+.matrix-display::before {
+  left: 8px;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+}
+
+.matrix-display::after {
+  right: 8px;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+}
+
+.input-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-cell label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+input[type="number"] {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.1rem;
+  background: var(--btn-bg);
+  color: var(--text);
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+button.action-btn {
+  padding: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--btn-bg);
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+button.action-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+button.reset {
+  grid-column: span 2;
+  background: rgba(231, 76, 60, 0.1);
+  color: var(--accent);
+}
+
+.status-card {
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 5px solid var(--primary);
+}
+
+.det-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.warning {
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: none;
+  font-weight: bold;
+}
+
+#main-view {
+  flex-grow: 1;
+  position: relative;
+  background: var(--canvas-bg);
+  transition: background-color 0.3s;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.legend {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--legend-bg);
+  color: var(--text);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 0.85rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.color-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-line {
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
