@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrix Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <div class="header-controls">
+      <h1 data-i18n="title"></h1>
+      <div class="control-btns">
+        <button class="icon-btn" id="theme-btn"
+          onclick="app.toggleTheme()">💻</button>
+        <button class="icon-btn" id="lang-btn" onclick="app.toggleLang()">🌐
+          EN</button>
+      </div>
+    </div>
+    <p class="desc" data-i18n="desc"></p>
+
+    <div class="status-card">
+      <div class="det-label" data-i18n="detLabel"></div>
+      <div class="det-value" id="det-text">1.00</div>
+      <div id="det-warn" class="warning" data-i18n="detWarn"></div>
+    </div>
+
+    <h2 data-i18n="currentMatrix"></h2>
+    <div class="matrix-display">
+      <div class="input-cell"><label>a (1,1)</label><input type="number"
+          id="m-a" value="1" step="0.1"></div>
+      <div class="input-cell"><label>b (1,2)</label><input type="number"
+          id="m-b" value="0" step="0.1"></div>
+      <div class="input-cell"><label>c (2,1)</label><input type="number"
+          id="m-c" value="0" step="0.1"></div>
+      <div class="input-cell"><label>d (2,2)</label><input type="number"
+          id="m-d" value="1" step="0.1"></div>
+    </div>
+
+    <h2 data-i18n="applyTransform"></h2>
+    <div class="button-grid">
+      <button class="action-btn" onclick="app.multiply(0, -1, 1, 0)"><span
+          data-i18n="btnRot90"></span></button>
+      <button class="action-btn"
+        onclick="app.multiply(0.707, -0.707, 0.707, 0.707)"><span
+          data-i18n="btnRot45"></span></button>
+      <button class="action-btn" onclick="app.multiply(1, 1, 0, 1)"><span
+          data-i18n="btnShear"></span></button>
+      <button class="action-btn" onclick="app.multiply(1, 0, 0, -1)"><span
+          data-i18n="btnReflect"></span></button>
+      <button class="action-btn" onclick="app.multiply(2.0, 0, 0, 2.0)"><span
+          data-i18n="btnScaleUp"></span></button>
+      <button class="action-btn" onclick="app.multiply(0.5, 0, 0, 0.5)"><span
+          data-i18n="btnScaleDown"></span></button>
+      <button class="action-btn reset" onclick="app.resetMatrix()"><span
+          data-i18n="btnReset"></span></button>
+    </div>
+  </div>
+
+  <div id="main-view">
+    <canvas id="canvas"></canvas>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="color-circle" style="background: #e74c3c;"></div> <span
+          data-i18n="legendE1"></span>
+      </div>
+      <div class="legend-item">
+        <div class="color-circle" style="background: #3498db;"></div> <span
+          data-i18n="legendE2"></span>
+      </div>
+      <div class="legend-line" data-i18n="legendGrid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

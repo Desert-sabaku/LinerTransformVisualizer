@@ -1,0 +1,38 @@
+{
+    "ja": {
+        "title": "線形変換",
+        "desc": "現在の状態に対して、新しい変換を左から掛け合わせます。",
+        "detLabel": "面積の拡大率 (行列式):",
+        "detWarn": "⚠️ 空間が1次元以下に潰れています",
+        "currentMatrix": "現在の行列 M",
+        "applyTransform": "変換を適用 ( T * M )",
+        "btnRot90": "🔄 90°回転",
+        "btnRot45": "📐 45°回転",
+        "btnShear": "↔️ X-せん断",
+        "btnReflect": "🪞 X軸反転",
+        "btnScaleUp": "🔍 2.0倍拡大",
+        "btnScaleDown": "🤏 0.5倍縮小",
+        "btnReset": "✨ リセット (単位行列)",
+        "legendE1": "基底 e₁ (1, 0) の行き先",
+        "legendE2": "基底 e₂ (0, 1) の行き先",
+        "legendGrid": "薄い線: 変換前のグリッド"
+    },
+    "en": {
+        "title": "Linear Transformation",
+        "desc": "Multiply new transformations from the left to the current state.",
+        "detLabel": "Area Scaling (Determinant):",
+        "detWarn": "⚠️ Space has collapsed to 1D or 0D",
+        "currentMatrix": "Current Matrix M",
+        "applyTransform": "Apply Transform ( T * M )",
+        "btnRot90": "🔄 Rot 90°",
+        "btnRot45": "📐 Rot 45°",
+        "btnShear": "↔️ Shear X",
+        "btnReflect": "🪞 Reflect X",
+        "btnScaleUp": "🔍 Scale 2.0x",
+        "btnScaleDown": "🤏 Scale 0.5x",
+        "btnReset": "✨ Reset to Identity",
+        "legendE1": "End of basis e₁ (1, 0)",
+        "legendE2": "End of basis e₂ (0, 1)",
+        "legendGrid": "Faint grid: Original space"
+    }
+}
