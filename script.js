@@ -72,6 +72,7 @@ const app = {
      */
     toggleLang() {
         this.lang = this.lang === "ja" ? "en" : "ja";
+        document.documentElement.title = this.lang;
         document.getElementById("lang-btn").textContent =
             this.lang === "ja" ? "🌐 EN" : "🌐 JA";
         this.applyTranslations();
